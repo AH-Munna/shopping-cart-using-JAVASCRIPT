@@ -29,18 +29,19 @@ function addToCart(e) {
     
 
     //total price add
-    let selectedItemPrice = parseInt(price.substring(4, 7));
+    /* let selectedItemPrice = parseInt(price.substring(4, 7));
     let totalPriceString = document.getElementById('totalPrice').textContent;
     let totalPrice = parseInt(totalPriceString.substring(11, (totalPriceString.length-2)));
     console.log("previous total Price: " + totalPrice);
     totalPrice += selectedItemPrice;
-    document.getElementById('totalPrice').textContent = "total: BDT-" + totalPrice + "tk";
+    document.getElementById('totalPrice').textContent = "total: BDT-" + totalPrice + "tk"; */
 }
 
 //removing from cart
 
 function removeFromCart(e) {
-    let val = e.parentElement;
+    let val = e.parentElement.parentElement;
+    //let val2 = e.parentElement;
 
     console.log("removing:");
     console.log(e.parentElement);
@@ -48,7 +49,7 @@ function removeFromCart(e) {
     e.parentElement.remove();
 
     //total price substract
-    let price = val.textContent;
+    /*let price = val.textContent;
     console.log(price);
     price = parseInt(price.substring(11, (price.length-11)));
     let totalPriceString = document.getElementById('totalPrice').textContent;
@@ -56,7 +57,7 @@ function removeFromCart(e) {
     console.log(price);
     console.log(totalPrice);
     totalPrice -= price;
-    document.getElementById('totalPrice').textContent = "total: BDT-" + totalPrice + "tk";
+    document.getElementById('totalPrice').textContent = "total: BDT-" + totalPrice + "tk"; */
 
 
     if (val.childNodes.length < 3) {
