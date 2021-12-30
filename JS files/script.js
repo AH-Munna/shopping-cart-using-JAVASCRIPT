@@ -29,38 +29,40 @@ function addToCart(e) {
     
 
     //total price add
-    /* let selectedItemPrice = parseInt(price.substring(4, 7));
+    let selectedItemPrice = parseInt(price.substring(4, 7));
     let totalPriceString = document.getElementById('totalPrice').textContent;
     let totalPrice = parseInt(totalPriceString.substring(11, (totalPriceString.length-2)));
-    console.log("previous total Price: " + totalPrice);
     totalPrice += selectedItemPrice;
-    document.getElementById('totalPrice').textContent = "total: BDT-" + totalPrice + "tk"; */
+    document.getElementById('totalPrice').textContent = "total: BDT-" + totalPrice + "tk";
 }
 
 //removing from cart
 
 function removeFromCart(e) {
-    let val = e.parentElement.parentElement;
-    //let val2 = e.parentElement;
-
-    console.log("removing:");
-    console.log(e.parentElement);
+    let wholeItem = e.parentElement;
+    let parent = e.parentElement.parentElement;
     
-    e.parentElement.remove();
-
+    console.log("removing:");
+    console.log(wholeItem);
+    
+    wholeItem.remove();
+    
     //total price substract
-    /*let price = val.textContent;
+    let price = wholeItem.textContent;
     console.log(price);
-    price = parseInt(price.substring(11, (price.length-11)));
+    
+    let re = /T-/;
+    let re2 = /tk/;
+    price = parseInt(price.substring(re.exec(price).index + 2, re2.exec(price).index));
+    
     let totalPriceString = document.getElementById('totalPrice').textContent;
-    let totalPrice = parseInt(totalPriceString.substring(19, (totalPriceString.length-6)));
-    console.log(price);
-    console.log(totalPrice);
+    let totalPrice = parseInt(totalPriceString.substring(11, (totalPriceString.length-2)));
+    console.log("removing price: " + price + " total: " + totalPrice);
     totalPrice -= price;
-    document.getElementById('totalPrice').textContent = "total: BDT-" + totalPrice + "tk"; */
-
-
-    if (val.childNodes.length < 3) {
+    document.getElementById('totalPrice').textContent = "total: BDT-" + totalPrice + "tk";
+    
+    
+    if (parent.childNodes.length < 3) {
         let listItem = document.createElement('li');
         listItem.textContent = "no item";
         listItem.id = "noItem";
